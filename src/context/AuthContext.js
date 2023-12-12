@@ -1,7 +1,7 @@
 import { useContext, createContext, useEffect, useState } from "react";
 import {GoogleAuthProvider, signInWithRedirect, signOut, onAuthStateChanged} from "firebase/auth";
 import {auth} from "../firebaseConfig";
-import {doc, setDoc, getDoc, updateDoc} from "firebase/firestore";
+import {doc, setDoc, getDoc, updateDoc, deleteDoc} from "firebase/firestore";
 import { db } from "../firebaseConfig";
 
 const AuthContext = createContext();
@@ -19,7 +19,8 @@ export const AuthContextProvider = ({children}) => {
         signOut(auth);
     }
 
-    const deleteAccount = ()=>{
+    const deleteAccount = async()=>{
+        await deleteDoc(doc(db,"DisplayNames",auth.currentUser.uid));
         auth.currentUser.delete().then(()=>{
             console.log("User deleted successfully");
         }).catch((error)=>{

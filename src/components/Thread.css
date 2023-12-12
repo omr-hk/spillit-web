@@ -1,0 +1,64 @@
+.post-container-light{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    background-color: rgb(235, 235, 235);
+    padding: 5%;
+    flex-direction: column;
+    border-radius: 1em;
+}
+.post-container-dark{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    background-color: rgb(15, 15, 15);
+    padding: 5%;
+    flex-direction: column;
+    border-radius: 1em;
+}
+.post-heading-light{
+    font-size: 1.5em;
+    font-weight: 600;
+    padding-bottom: 3%;
+    color: black;
+}
+.post-heading-dark{
+    font-size: 1.5em;
+    font-weight: 600;
+    padding-bottom: 3%;
+    color: white;
+}
+
+.post-content-light{
+    font-size: 1em;
+    text-align: left;
+    color: black;
+}
+.post-content-dark{
+    font-size: 1em;
+    text-align: left;
+    color: white;
+}
+
+.post-footer{
+    font-size: 0.6em;
+    font-weight: 600;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.post-likes-light{
+    display: flex;
+    gap: 25%;
+    color: black;
+}
+.post-likes-dark{
+    display: flex;
+    gap: 25%;
+    color: white;
+}

@@ -1,0 +1,70 @@
+.dialog{
+    padding: 1em;
+    height: 25em;
+    width: 30em;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.gbutton{
+    background-color: rgb(77, 138, 236);
+    border: none;
+    border-radius: 0.5em;
+    width: 250px;
+    height: 50px;
+}
+.abutton{
+    background-color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 0.5em;
+    width: 250px;
+    height: 50px;
+}
+
+p{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 1.35em;
+}
+
+.bcontent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3em;
+}
+.gtext{
+    color: white;
+}
+.atext{
+    color: black;
+}
+
+.lg{
+    padding: 0.55em 0;
+}
+.ag{
+    padding: 0.53em 0;
+}
+.acon{
+    padding: 0.6em 0;
+}
+.con{
+    padding: 0.38em 0;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+.gbutton:hover{
+    background-color: rgb(67, 121, 208);
+}
+.abutton:hover{
+    background-color: rgb(235, 235, 235);
+}

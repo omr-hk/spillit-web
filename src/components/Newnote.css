@@ -1,0 +1,89 @@
+.newnote-canvas{
+    height: 80%;
+    width: 90%;
+    padding: 5%;
+}
+
+.newnote-container{
+    width: 100%;
+    height: 85%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.newnote-input-light{
+    width: 60%;
+    height: 70%;
+    border: none;
+    border-radius: 1em;
+    font-size: 1.5em;
+    padding: 2%;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    resize:none;
+    background-color: rgb(235, 235, 235);
+}
+
+.newnote-input-dark{
+    width: 60%;
+    height: 70%;
+    border: none;
+    border-radius: 1em;
+    font-size: 1.5em;
+    padding: 2%;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    resize:none;
+    background-color: rgb(13, 13, 13);
+    color: rgb(220, 220, 220);
+}
+
+.newnote-input-dark::-webkit-scrollbar {display:none;}
+.newnote-input-light::-webkit-scrollbar {display:none;}
+
+.newnote-title-light{
+    width: 40%;
+    border: none;
+    border-radius: 1em;
+    font-size: 1em;
+    padding: 1em;
+    background-color: rgb(235, 235, 235);
+}
+
+.newnote-title-dark{
+    width: 40%;
+    border: none;
+    border-radius: 1em;
+    font-size: 1em;
+    padding: 1em;
+    background-color: rgb(13, 13, 13);
+    color: rgb(220, 220, 220);
+}
+
+.newnote-submit{
+    width: 250px;
+    padding: 1em;
+    font-size: 1em;
+    border: none;
+    background-color: rgb(139, 174, 239);
+    border-radius: 1em;
+    color: white;
+}
+
+.newnote-submit:hover{
+    background-color: rgb(130, 152, 194);
+}
+
+.newnote-input-light:focus{
+    outline: none;
+}
+.newnote-input-dark:focus{
+    outline: none;
+}
+.newnote-title-light:focus{
+    outline: none;
+}
+.newnote-title-dark:focus{
+    outline: none;
+}

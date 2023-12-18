@@ -10,3 +10,45 @@
 }
 
 .thread-container::-webkit-scrollbar {display:none;}
+
+.loading-container{
+    width: 90%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.message-box-light{
+    height: 25%;
+    width: 30%;
+    background-color: rgb(230, 230, 230);
+    font-size: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1em;
+}
+
+.message-box-dark{
+    height: 25%;
+    width: 30%;
+    background-color: rgb(13, 13, 13);
+    font-size: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1em;
+}
+
+.message-light{
+    color: black;
+}
+.message-dark{
+    color: rgb(210, 210, 210);
+}
+
+.error{
+    color: rgb(129, 52, 52);
+    font-size: 1em;
+}

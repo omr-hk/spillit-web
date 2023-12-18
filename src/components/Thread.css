@@ -20,14 +20,14 @@
 }
 .post-heading-light{
     font-size: 1.5em;
-    font-weight: 600;
     padding-bottom: 3%;
+    font-weight: 600;
     color: black;
 }
 .post-heading-dark{
     font-size: 1.5em;
-    font-weight: 600;
     padding-bottom: 3%;
+    font-weight: 600;
     color: white;
 }
 
@@ -61,4 +61,14 @@
     display: flex;
     gap: 25%;
     color: white;
+}
+
+.user-post-del-icon{
+    color: brown;
+    font-size: 1.5em;
+    margin-left: 3em;
+}
+
+.user-post-del-icon:hover{
+    cursor: pointer;
 }

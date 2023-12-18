@@ -1,0 +1,53 @@
+.settings-container{
+    height: 80%;
+    padding: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.utility-dark{
+    color: white;
+    font-size: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3em;
+}
+
+.utility-light{
+    color: black;
+    font-size: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3em;
+}
+
+.toggle-mode-dark{
+    padding: 0.6em 3em;
+    border-radius: 1em;
+    border: none;
+    background-color: rgb(235, 235, 235);
+    color: black;
+    font-weight: 500;
+    transition: background-color 0.5s;
+}
+.toggle-mode-light{
+    padding: 0.6em 3em;
+    border-radius: 1em;
+    border: none;
+    background-color: rgb(16, 16, 16);
+    color: white;
+    font-weight: 500;
+    transition: background-color 0.5s;
+}
+.toggle-mode-dark:hover{
+    background-color: rgb(184, 117, 117);
+    color: white;
+}
+.toggle-mode-light:hover{
+    background-color: rgb(65, 121, 154);
+    color: white;
+}

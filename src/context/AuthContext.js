@@ -9,7 +9,7 @@ const AuthContext = createContext();
 export const AuthContextProvider = ({children}) => {
     const [user, setUser] = useState({});
     const [displayName, setDisplayName] =useState({});
-    const [dark, setDark] = useState(false);
+    const [dark, setDark] = useState(true);
     const googleSignIn = ()=>{
         const provider = new GoogleAuthProvider();
         signInWithRedirect(auth,provider);
@@ -54,7 +54,6 @@ export const AuthContextProvider = ({children}) => {
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth, (currentUser)=>{
             setUser(currentUser);
-            
             
         });
         return()=>{

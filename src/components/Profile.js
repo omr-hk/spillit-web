@@ -60,7 +60,9 @@ function Profile(){
     }
 
     useEffect(()=>{
-        checkDisplayName(user);
+        if(Object.keys(user).length !==0){
+            checkDisplayName(user);
+        }
     },[user]);
 
     return(

@@ -12,8 +12,10 @@ function Newnote(){
         setTheme(dark ? "dark" : "light");
     },[dark]);
     useEffect(()=>{
-        checkDisplayName(user);
-    })
+        if(Object.keys(user).length !==0){
+            checkDisplayName(user);
+        }
+    },[user])
     const note = (title, content, displayName,userid,id)=>{
         return {
             id: id,

@@ -33,10 +33,12 @@ export const AuthContextProvider = ({children}) => {
         if (docSnap.exists()){
             console.log("document exists");
             setDisplayName(docSnap.data());
+            setDark(docSnap.data().darkm);
         }
         else{
             await setDoc(doc(db,"DisplayNames",user.uid),{
-                name: user.displayName
+                name: user.displayName,
+                darkm: dark
             })
             setDisplayName({
                 name: user.displayName
@@ -44,11 +46,20 @@ export const AuthContextProvider = ({children}) => {
         }
     }
 
+    const changeDarkMode = async(user,mode)=>{
+        await updateDoc(doc(db,"DisplayNames",user.uid),{
+            darkm: mode
+        });
+        setDark(mode);
+    }
+
     const changeDisplayName = async(user,data)=>{
         await updateDoc(doc(db,"DisplayNames",user.uid),{
             name:data.name
         });
-        checkDisplayName(user);
+        setDisplayName({
+            name:data.name
+        })
     }
 
     useEffect(()=>{
@@ -63,7 +74,7 @@ export const AuthContextProvider = ({children}) => {
 
 
     return (
-        <AuthContext.Provider value={{googleSignIn,logout,user,deleteAccount, checkDisplayName,displayName, changeDisplayName, dark, setDark}}>
+        <AuthContext.Provider value={{googleSignIn,logout,user,deleteAccount, checkDisplayName,displayName, changeDisplayName, dark, setDark,changeDarkMode}}>
             {children}
         </AuthContext.Provider>
     );

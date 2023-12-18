@@ -7,10 +7,16 @@ import Threads from "./Threads";
 import Profile from "./Profile";
 import Settings from "./Settings";
 import Newnote from './Newnote';
+import { useEffect } from 'react';
 function HomePage(){
-    const {dark} = UserAuth();
+    const {dark,checkDisplayName,user} = UserAuth();
     const theme = dark ? "dark" : "light";
     const url = "/homepage/";
+    useEffect(()=>{
+        if(Object.keys(user).length !==0){
+            checkDisplayName(user);
+        }
+    },[user])
     return (
         <div className="mainPage">
            <div className={"navBar-"+theme}>

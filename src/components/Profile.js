@@ -5,7 +5,7 @@ import { Dialog, Alert, Collapse, IconButton} from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencil } from "@fortawesome/free-solid-svg-icons";
-import { collection, doc, getDocs, query, updateDoc, where } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../firebaseConfig";
 function Profile(){
 
@@ -22,13 +22,15 @@ function Profile(){
 
     const handleClose = ()=>{
         setOpen(false);
+        setDname("");
+        setAlopen(false);
     }
 
     const checkUnique = async()=>{
         if(dname.length != 0){
             const q = query(collection(db,"DisplayNames"), where("name","==",dname));
             const querySnapshot = await getDocs(q);
-            if(querySnapshot.exists){
+            if(querySnapshot.docs.length !== 0){
                 setAlopen(true);
             }
             else{
@@ -38,6 +40,7 @@ function Profile(){
                 setDname("");
                 setAlopen(false);
                 setOpen(false);
+                checkDisplayName(user);
             }
         }
     }
@@ -58,12 +61,6 @@ function Profile(){
             console.log(error)
         }
     }
-
-    useEffect(()=>{
-        if(Object.keys(user).length !==0){
-            checkDisplayName(user);
-        }
-    },[user]);
 
     return(
         <div className="profile-canvas">

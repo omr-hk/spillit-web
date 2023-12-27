@@ -1,5 +1,5 @@
 import { useContext, createContext, useEffect, useState } from "react";
-import {GoogleAuthProvider, signInWithRedirect, signOut, onAuthStateChanged} from "firebase/auth";
+import {GoogleAuthProvider, signInWithRedirect, signOut, onAuthStateChanged, OAuthProvider, getRedirectResult} from "firebase/auth";
 import {auth} from "../firebaseConfig";
 import {doc, setDoc, getDoc, updateDoc, deleteDoc} from "firebase/firestore";
 import { db } from "../firebaseConfig";
@@ -13,6 +13,11 @@ export const AuthContextProvider = ({children}) => {
     const googleSignIn = ()=>{
         const provider = new GoogleAuthProvider();
         signInWithRedirect(auth,provider);
+    }
+
+    const appleSignIn = ()=>{
+        const provider = new OAuthProvider('apple.com');
+        signInWithRedirect(auth, provider);
     }
 
     const logout = ()=>{
@@ -74,7 +79,7 @@ export const AuthContextProvider = ({children}) => {
 
 
     return (
-        <AuthContext.Provider value={{googleSignIn,logout,user,deleteAccount, checkDisplayName,displayName, changeDisplayName, dark, setDark,changeDarkMode}}>
+        <AuthContext.Provider value={{googleSignIn,logout,user,deleteAccount, checkDisplayName,displayName, changeDisplayName, dark, setDark,changeDarkMode, appleSignIn}}>
             {children}
         </AuthContext.Provider>
     );

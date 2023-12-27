@@ -10,7 +10,7 @@ function Signin(){
 
     const navigate = useNavigate();
 
-    const {googleSignIn, user} = UserAuth();
+    const {googleSignIn, user, appleSignIn} = UserAuth();
 
     const handleGoogleSignIn = async () =>{
         try {
@@ -20,9 +20,19 @@ function Signin(){
         }
     }
 
+    const handleAppleSignIn = async () =>{
+        try {
+            await appleSignIn();
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     useEffect(()=>{
-        if(user != null){
-            navigate('/homepage');
+        if(user){
+            if(Object.keys(user).length !== 0){
+                navigate('/homepage');
+            }
         }
     },[user]);
     
@@ -37,7 +47,7 @@ function Signin(){
                 </div>
                 </button>
             
-                <button className='abutton'>
+                <button className='abutton' onClick={handleAppleSignIn}>
                 <div className='bcontent'>
                     <div className='ag'><LogoApple fillColor="black" /></div>
                     <div className='acon'><p className='atext'>Sign in with Apple </p></div>

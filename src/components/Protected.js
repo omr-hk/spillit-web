@@ -5,6 +5,9 @@ function Protected({children}){
     if(!user){
         return(<Navigate to="/"/>)
     }
+    else if(Object.keys(user).length === 0){
+        return(<Navigate to="/"/>)
+    }
     return children;
 }
 

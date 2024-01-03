@@ -43,6 +43,12 @@
     font-weight:200;
 }
 
+.values-empty{
+    font-size: 1.5em;
+    color: rgb(255, 46, 46);
+    font-weight:200;
+}
+
 .pbut:hover{
     background-color: rgba(188, 188, 188, 0.6);
     cursor: pointer;

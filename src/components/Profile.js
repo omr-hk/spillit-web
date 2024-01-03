@@ -66,11 +66,11 @@ function Profile(){
         <div className="profile-canvas">
             <div className="info">
                 <p className="heading">Name</p>
-                <p className={"values-"+theme}>{user.displayName}</p>
+                <p className={"values-"+theme}>{user.displayName === null ? "Hidden" : user.displayName}</p>
 
                 <p className="heading">Display Name</p>
                 <div className="edit-box">
-                    <p className={"values-"+theme}>{displayName.name}</p>
+                    <p className={displayName.name === null ? "values-empty" :"values-"+theme}>{displayName.name === null ? "Set up Display Name" : displayName.name}</p>
                     <FontAwesomeIcon className={"edit-pencil-"+theme} icon={faPencil} onClick={handleOpen}/>
                 </div>
             </div>

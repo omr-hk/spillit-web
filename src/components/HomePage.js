@@ -1,7 +1,7 @@
 import './HomePage.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse, faUser, faGear, faCirclePlus } from "@fortawesome/free-solid-svg-icons";
-import { Routes, Route, useResolvedPath, Link} from "react-router-dom";
+import { Routes, Route, Link, Navigate} from "react-router-dom";
 import { UserAuth } from '../context/AuthContext';
 import Threads from "./Threads";
 import Profile from "./Profile";
@@ -9,7 +9,7 @@ import Settings from "./Settings";
 import Newnote from './Newnote';
 import { useEffect } from 'react';
 function HomePage(){
-    const {dark,checkDisplayName,user} = UserAuth();
+    const {dark,checkDisplayName,user, displayName} = UserAuth();
     const theme = dark ? "dark" : "light";
     const url = "/homepage/";
     useEffect(()=>{

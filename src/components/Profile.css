@@ -111,3 +111,8 @@
 .edit-submit:hover{
     background-color: rgb(118, 118, 165);
 }
+
+.info{
+    animation-name: threadanimation;
+    animation-duration: 0.8s;
+}

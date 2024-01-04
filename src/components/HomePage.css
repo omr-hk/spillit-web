@@ -69,6 +69,8 @@
     height: 8%;
     border-radius: 0.55em;
     transition: background-color 0.5s;
+    position: fixed;
+    bottom: 10px;
 }
 
 .bottomNav-dark{

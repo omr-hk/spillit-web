@@ -14,7 +14,7 @@ function Settings(){
     },[dark])
     return(
         <div className="settings-container">
-            <div className={'utility-'+theme}>
+            <div className={'utility-dmode-'+theme}>
                 <p>Toggle Appearance: </p>
                 <button className={"toggle-mode-"+theme} onClick={handleSwitch}>switch</button>
             </div>

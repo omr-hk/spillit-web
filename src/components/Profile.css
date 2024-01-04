@@ -1,3 +1,8 @@
+@keyframes profileanimation {
+    from {margin-top: 100px;}
+    to {margin-top: 0;}
+}
+
 .profile-canvas{
     height: 80%;
     padding: 5%;
@@ -113,6 +118,6 @@
 }
 
 .info{
-    animation-name: threadanimation;
-    animation-duration: 0.8s;
+    animation: profileanimation;
+    animation-duration: 0.5s;
 }

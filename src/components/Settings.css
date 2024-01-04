@@ -9,7 +9,7 @@
     animation-duration: 0.8s;
 }
 
-.utility-dark{
+.utility-dmode-dark{
     color: white;
     font-size: 1em;
     display: flex;
@@ -18,7 +18,7 @@
     gap: 3em;
 }
 
-.utility-light{
+.utility-dmode-light{
     color: black;
     font-size: 1em;
     display: flex;

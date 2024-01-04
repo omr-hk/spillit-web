@@ -8,8 +8,6 @@
     justify-content: center;
     flex-direction: column;
     gap: 1em;
-    animation-name: threadanimation;
-    animation-duration: 0.8s;
 }
 
 .gbutton{

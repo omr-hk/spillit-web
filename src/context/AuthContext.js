@@ -38,7 +38,7 @@ export const AuthContextProvider = ({children}) => {
         const docSnap = await getDoc(doc(db,"DisplayNames",user.uid));
         if (docSnap.exists()){
             console.log("document exists");
-            setDisplayName(docSnap.data());
+            setDisplayName(docSnap.data().name);
             setDark(docSnap.data().darkm);
         }
         else{

@@ -23,6 +23,7 @@
     padding: 5%;
     flex-direction: column;
     border-radius: 1em;
+    animation-name: threadanimation;
     animation-duration: 1s;
 }
 .post-heading-light{

@@ -7,7 +7,7 @@ function Settings(){
     const handleSwitch=()=>{
         setDark(dark===true ? false : true);
         const mode = dark===true ? false : true;
-        changeDarkMode(user,mode);
+        changeDarkMode(mode);
     }
     useEffect(()=>{
         setTheme(dark ? "dark" : "light");
@@ -15,8 +15,7 @@ function Settings(){
     return(
         <div className="settings-container">
             <div className={'utility-dmode-'+theme}>
-                <p>Toggle Appearance: </p>
-                <button className={"toggle-mode-"+theme} onClick={handleSwitch}>switch</button>
+                <button className={"toggle-mode-"+theme} onClick={handleSwitch}>Toggle Dark Mode</button>
             </div>
         </div>
     )

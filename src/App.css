@@ -1,10 +1,7 @@
 @keyframes signinanimation {
-    0% {background-color: rgb(222, 223, 148);}
-    20% {background-color: rgb(187, 107, 107);}
-    40% {background-color: rgb(139, 195, 126);}
-    60% {background-color: rgb(168, 154, 218);}
-    80% {background-color: rgb(199, 141, 154);}
-    100% {background-color: rgb(198, 160, 160);}
+    0% {background-color: #D2B48C;}
+    50% {background-color: #C0965E;}
+    100% {background-color: #9d7f57;}
 
 
 }
@@ -16,7 +13,7 @@
     justify-content: center;
     align-items: center;
     animation-name: signinanimation;
-    animation-duration: 30s;
+    animation-duration: 100s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }

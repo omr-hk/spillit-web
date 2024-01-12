@@ -1,13 +1,13 @@
 .outer{
     height: 100px;
-    width: 250px;
     display: flex;
     justify-content: center;
     align-items: center;
     padding-bottom: 10em;
 }
 .inner-text{
-    font-size: 5em;
-    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: 4em;
+    font-family: Pacifico;
     color: rgb(0, 0, 0);
 }

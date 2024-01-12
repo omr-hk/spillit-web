@@ -9,12 +9,12 @@ import Settings from "./Settings";
 import Newnote from './Newnote';
 import { useEffect } from 'react';
 function HomePage(){
-    const {dark,checkDisplayName,user, displayName} = UserAuth();
+    const {dark,checkDisplayName,user} = UserAuth();
     const theme = dark ? "dark" : "light";
     const url = "/homepage/";
     useEffect(()=>{
         if(Object.keys(user).length !==0){
-            checkDisplayName(user);
+            checkDisplayName();
         }
     },[user])
     return (

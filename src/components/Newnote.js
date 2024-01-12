@@ -14,7 +14,7 @@ function Newnote(){
     },[dark]);
     useEffect(()=>{
         if(Object.keys(user).length !==0){
-            checkDisplayName(user);
+            checkDisplayName();
         }
     },[user])
     const note = (title, content, displayName,userid,id)=>{
@@ -22,7 +22,7 @@ function Newnote(){
             id: id,
             title: title,
             content: content,
-            displayName: displayName.name,
+            displayName: displayName,
             likes: [],
             userid: userid,
             time: serverTimestamp()
@@ -38,7 +38,7 @@ function Newnote(){
             });
         }
     }
-    if (displayName.name === null){
+    if (displayName.length === 0){
         return(
             <Navigate to={"/homepage/profile"}/>
         )

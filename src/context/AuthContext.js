@@ -8,8 +8,9 @@ const AuthContext = createContext();
 
 export const AuthContextProvider = ({children}) => {
     const [user, setUser] = useState({});
-    const [displayName, setDisplayName] =useState({});
+    const [displayName, setDisplayName] =useState("");
     const [dark, setDark] = useState(true);
+    const [bg, setBg] = useState("beige");
     const googleSignIn = ()=>{
         const provider = new GoogleAuthProvider();
         signInWithRedirect(auth,provider);
@@ -33,7 +34,7 @@ export const AuthContextProvider = ({children}) => {
         });
     }
 
-    const checkDisplayName = async (user)=>{
+    const checkDisplayName = async ()=>{
         const docSnap = await getDoc(doc(db,"DisplayNames",user.uid));
         if (docSnap.exists()){
             console.log("document exists");
@@ -43,28 +44,32 @@ export const AuthContextProvider = ({children}) => {
         else{
             await setDoc(doc(db,"DisplayNames",user.uid),{
                 name: user.displayName,
-                darkm: dark
+                darkm: dark,
+                bgc: bg
             })
-            setDisplayName({
-                name: user.displayName
-            })
+            setDisplayName(user.displayName)
         }
     }
 
-    const changeDarkMode = async(user,mode)=>{
+    const changeDarkMode = async(mode)=>{
         await updateDoc(doc(db,"DisplayNames",user.uid),{
             darkm: mode
         });
         setDark(mode);
     }
 
-    const changeDisplayName = async(user,data)=>{
+    const changeBg = async(col)=>{
         await updateDoc(doc(db,"DisplayNames",user.uid),{
-            name:data.name
+            bgc: col
         });
-        setDisplayName({
-            name:data.name
-        })
+        setBg(col);
+    }
+
+    const changeDisplayName = async(data)=>{
+        await updateDoc(doc(db,"DisplayNames",user.uid),{
+            name:data
+        });
+        setDisplayName(data);
     }
 
     useEffect(()=>{
@@ -79,7 +84,7 @@ export const AuthContextProvider = ({children}) => {
 
 
     return (
-        <AuthContext.Provider value={{googleSignIn,logout,user,deleteAccount, checkDisplayName,displayName, changeDisplayName, dark, setDark,changeDarkMode, appleSignIn}}>
+        <AuthContext.Provider value={{googleSignIn,logout,user,deleteAccount, checkDisplayName,displayName, changeDisplayName, dark, setDark,changeDarkMode, appleSignIn,bg, setBg}}>
             {children}
         </AuthContext.Provider>
     );

@@ -68,7 +68,7 @@ function Profile(){
 
                 <p className="heading">Display Name</p>
                 <div className="edit-box">
-                    <p className={displayName.length === 0 ? "values-empty" :"values-"+theme}>{displayName.length === 0 ? "Set up Display Name" : displayName.name}</p>
+                    <p className={displayName.length === 0 ? "values-empty" :"values-"+theme}>{displayName.length === 0 ? "Set up Display Name" : displayName}</p>
                     <FontAwesomeIcon className={"edit-pencil-"+theme} icon={faPencil} onClick={handleOpen}/>
                 </div>
             </div>

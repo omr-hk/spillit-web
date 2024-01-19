@@ -28,7 +28,7 @@ function Profile(){
 
     const checkUnique = async()=>{
         if(dname.length != 0){
-            const q = query(collection(db,"DisplayNames"), where("name","==",dname));
+            const q = query(collection(db,"UserData"), where("displayName","==",dname));
             const querySnapshot = await getDocs(q);
             if(querySnapshot.docs.length !== 0){
                 setAlopen(true);

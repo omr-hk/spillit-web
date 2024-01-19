@@ -17,14 +17,12 @@ function Newnote(){
             checkDisplayName();
         }
     },[user])
-    const note = (title, content, displayName,userid,id)=>{
+    const note = (title, content,userid)=>{
         return {
-            id: id,
             title: title,
             content: content,
-            displayName: displayName,
             likes: [],
-            userid: userid,
+            uid: userid,
             time: serverTimestamp()
         }
     }
@@ -32,7 +30,7 @@ function Newnote(){
     const handleSubmit = async()=>{
         if(content.length!==0 && title.length!==0){
             const newNoteRef = doc(collection(db,"Notes"));
-            await setDoc(newNoteRef,note(title,content,displayName,user.uid,newNoteRef.id)).then(()=>{
+            await setDoc(newNoteRef,note(title,content,user.uid)).then(()=>{
                 setContent("");
                 setTitle("");
             });

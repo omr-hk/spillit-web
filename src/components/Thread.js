@@ -6,7 +6,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import { UserAuth } from '../context/AuthContext';
 import { forwardRef, useEffect, useState } from 'react';
 import { IconButton } from '@mui/material';
-import { arrayRemove, arrayUnion, doc, updateDoc } from 'firebase/firestore';
+import { arrayRemove, arrayUnion, doc, getDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../firebaseConfig';
 const Thread = forwardRef((props,ref)=>{
     const {dark, user} = UserAuth();
@@ -14,9 +14,20 @@ const Thread = forwardRef((props,ref)=>{
     const {data,performDel, ...otherProps} = props;
     const [liked,setLiked] = useState(data.likes.includes(user.uid));
     const [lcount, setLcount] = useState(data.likes.length);
+    const [dpname, setDpname] = useState("unavailable");
     const handledelete=()=>{
         performDel(data.id);
     }
+    useEffect(async ()=>{
+        const docsnap = await getDoc(doc(db,"UserData",data.uid));
+        if (docsnap.exists()){
+            const name = docsnap.get("displayName");
+            if (name.length !== 0){
+                setDpname(name);
+            }
+        }
+
+    },[])
     const handLike=async()=>{
         if(liked){
             setLiked(false);
@@ -33,7 +44,7 @@ const Thread = forwardRef((props,ref)=>{
             })
         }
     }
-    if(data.userid === user.uid){
+    if(data.uid === user.uid){
         return(
             <div className={"post-container-"+theme} ref={ref} {...otherProps}>
                 <p className={'post-heading-'+theme}>{data.title}</p>
@@ -43,7 +54,7 @@ const Thread = forwardRef((props,ref)=>{
                         <p><FontAwesomeIcon icon={faHeart}/></p><p>{lcount}</p>
                         <FontAwesomeIcon className='user-post-del-icon' icon={faTrashCan} onClick={handledelete}/>
                     </div>
-                    <p style={dark ? {color:'white'} : {color:'black'}}>{data.displayName}</p>
+                    <p style={dark ? {color:'white'} : {color:'black'}}>{dpname}</p>
                 </div>
             </div>
         )
@@ -58,7 +69,7 @@ const Thread = forwardRef((props,ref)=>{
                         <IconButton onClick={handLike}  size='small' sx={liked?{ color: 'red' }:{color: 'inherit'}}>{liked ? <FavoriteIcon fontSize='inherit'/> : <FavoriteBorderOutlinedIcon fontSize='inherit'/>}</IconButton>
                         <p className='likes-count'>{lcount}</p>
                     </div>
-                    <p style={dark ? {color:'white'} : {color:'black'}}>{data.displayName}</p>
+                    <p style={dark ? {color:'white'} : {color:'black'}}>{""+dpname}</p>
                 </div>
             </div>
         )

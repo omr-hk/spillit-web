@@ -14,6 +14,15 @@ const {dark} = UserAuth();
 const [theme, setTheme] = useState(dark ? "dark" : "light");
 const [isVisible, setVisible] = useState();
 const {user} = UserAuth();
+function makeNote(obj, id){
+    return {
+        id : id,
+        title : obj.title,
+        content: obj.content,
+        uid: obj.uid,
+        likes: obj.likes
+    }
+}
 const options={
     root : null,
     rootMargin: "0px",
@@ -75,7 +84,7 @@ const initialFetch = async()=>{
         setState("loading");
         var arr = [];
         querySnapshot.forEach((doc)=>{
-            arr.push(doc.data());
+            arr.push(makeNote(doc.data(),doc.id));
         })
         setNotes(arr);
         setLastVisible(querySnapshot.docs[querySnapshot.docs.length-1]);
@@ -90,7 +99,8 @@ const nextFetch = async()=>{
         var arr = notes;
         querySnapshot.forEach((doc)=>{
             if(!(doc.data() in arr)){
-                arr.push(doc.data());
+                arr.push(makeNote(doc.data(),doc.id));
+
             }
         })
         setNotes(arr);
@@ -123,10 +133,7 @@ else if (state === "loaded"){
     return (
         <div className='thread-container'>
             {notes.map((note)=>{
-                return(
-                    <Thread ref={note.id === lastnote ? lastVisibleRef : null} key={note.title} data={note} performDel={performDelete}/>
-
-                );
+                return <Thread ref={note.id === lastnote ? lastVisibleRef : null} key={note.id} data={note} performDel={performDelete}/>
             })}
         </div>
     )

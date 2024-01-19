@@ -10,7 +10,6 @@ export const AuthContextProvider = ({children}) => {
     const [user, setUser] = useState({});
     const [displayName, setDisplayName] =useState("");
     const [dark, setDark] = useState(true);
-    const [bg, setBg] = useState("beige");
     const googleSignIn = ()=>{
         const provider = new GoogleAuthProvider();
         signInWithRedirect(auth,provider);
@@ -26,7 +25,7 @@ export const AuthContextProvider = ({children}) => {
     }
 
     const deleteAccount = async()=>{
-        await deleteDoc(doc(db,"DisplayNames",auth.currentUser.uid));
+        await deleteDoc(doc(db,"UserData",auth.currentUser.uid));
         auth.currentUser.delete().then(()=>{
             console.log("User deleted successfully");
         }).catch((error)=>{
@@ -35,42 +34,36 @@ export const AuthContextProvider = ({children}) => {
     }
 
     const checkDisplayName = async ()=>{
-        const docSnap = await getDoc(doc(db,"DisplayNames",user.uid));
+        const docSnap = await getDoc(doc(db,"UserData",user.uid));
         if (docSnap.exists()){
             console.log("document exists");
-            setDisplayName(docSnap.data().name);
+            setDisplayName(docSnap.data().displayName);
             setDark(docSnap.data().darkm);
         }
         else{
-            await setDoc(doc(db,"DisplayNames",user.uid),{
-                name: user.displayName,
-                darkm: dark,
-                bgc: bg
+            await setDoc(doc(db,"UserData",user.uid),{
+                colorPreference: "beige",
+                displayName: user.displayName,
+                darkm: dark
             })
             setDisplayName(user.displayName)
         }
     }
 
     const changeDarkMode = async(mode)=>{
-        await updateDoc(doc(db,"DisplayNames",user.uid),{
+        await updateDoc(doc(db,"UserData",user.uid),{
             darkm: mode
         });
         setDark(mode);
     }
 
-    const changeBg = async(col)=>{
-        await updateDoc(doc(db,"DisplayNames",user.uid),{
-            bgc: col
-        });
-        setBg(col);
-    }
-
     const changeDisplayName = async(data)=>{
-        await updateDoc(doc(db,"DisplayNames",user.uid),{
-            name:data
+        await updateDoc(doc(db,"UserData",user.uid),{
+            displayName:data
         });
         setDisplayName(data);
     }
+
 
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth, (currentUser)=>{
@@ -84,7 +77,7 @@ export const AuthContextProvider = ({children}) => {
 
 
     return (
-        <AuthContext.Provider value={{googleSignIn,logout,user,deleteAccount, checkDisplayName,displayName, changeDisplayName, dark, setDark,changeDarkMode, appleSignIn,bg, setBg}}>
+        <AuthContext.Provider value={{googleSignIn,logout,user,deleteAccount, checkDisplayName,displayName, changeDisplayName, dark, setDark,changeDarkMode, appleSignIn}}>
             {children}
         </AuthContext.Provider>
     );

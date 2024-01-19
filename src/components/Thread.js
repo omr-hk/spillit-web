@@ -18,7 +18,7 @@ const Thread = forwardRef((props,ref)=>{
     const handledelete=()=>{
         performDel(data.id);
     }
-    useEffect(async ()=>{
+    const dname = async ()=>{
         const docsnap = await getDoc(doc(db,"UserData",data.uid));
         if (docsnap.exists()){
             const name = docsnap.get("displayName");
@@ -26,7 +26,9 @@ const Thread = forwardRef((props,ref)=>{
                 setDpname(name);
             }
         }
-
+    }
+    useEffect(()=>{
+        dname();
     },[])
     const handLike=async()=>{
         if(liked){

@@ -17,6 +17,6 @@ https://github.com/omr-hk/spillit-web/assets/111275526/193878ac-6544-4531-87ae-8
 
 <img width="1680" alt="Screenshot 2024-02-20 at 2 38 44 PM" src="https://github.com/omr-hk/spillit-web/assets/111275526/5dc96881-0bad-4152-95ad-38f11e631f71">
 
-<img width="1680" alt="Screenshot 2024-02-20 at 2 38 50 PM" src="https://github.com/omr-hk/spillit-web/assets/111275526/50034d76-00f1-445c-9e64-cf881676a28f">
+https://github.com/omr-hk/spillit-web/assets/111275526/9a93c042-2ea3-4e46-b396-b6ef77d28525
 
 <img width="1680" alt="Screenshot 2024-02-20 at 2 39 02 PM" src="https://github.com/omr-hk/spillit-web/assets/111275526/e3d75ca3-ae50-4d64-a471-3ba2c34b0b33">

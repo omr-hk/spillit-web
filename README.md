@@ -3,6 +3,10 @@ This project is built using React and Firebase. It is a simple blogging website 
 
 You can check out the site and its progress from here https://spillit-ca787.web.app/  
 
+## The Spillit ios app  
+The app repository can be found in the following link:  
+https://github.com/omr-hk/Spillit-IOS
+
 # Previews  
 
 https://github.com/omr-hk/spillit-web/assets/111275526/193878ac-6544-4531-87ae-8887e872f26a
